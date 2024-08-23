@@ -17,9 +17,9 @@ def plot_time_series(df):
     plt.xlabel('Timestamp')
     plt.ylabel('Values')
     plt.title('Change of Variables over Time')
-    # plt.legend(loc='upper right')
+    plt.legend(loc='upper right')
     plt.xticks(rotation=45)
-    # plt.tight_layout() 
+    plt.tight_layout() 
     plt.show()
 
 def ploat_correlation_analysis(data_frame):
@@ -75,8 +75,3 @@ def wind_analysis(data, ws_col='WS', wd_col='WD', title='Wind Speed and Directio
     # Analysis of variability in wind direction
     wind_direction_variability = data[wd_col].std()
     print(f"Wind Direction Variability (Standard Deviation): {wind_direction_variability:.2f} degrees")
-
-# Example usage with your data
-# wind_analysis(benin_data, ws_col='WS', wd_col='WD', title='Benin Wind Speed and Direction Analysis')
-# wind_analysis(sierraleone_data, ws_col='WS', wd_col='WD', title='Sierra Leone Wind Speed and Direction Analysis')
-# wind_analysis(togo_data, ws_col='WS', wd_col='WD', title='Togo Wind Speed and Direction Analysis')
