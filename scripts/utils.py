@@ -9,7 +9,7 @@ def plot_time_series(df):
     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
     
     # Plot GHI, DNI, DHI, and Tamb over time
-    plt.figure(figsize=(12,6))
+    plt.figure(figsize=(10,6))
     plt.plot(df['Timestamp'], df['GHI'], label='GHI')
     plt.plot(df['Timestamp'], df['DNI'], label='DNI')
     plt.plot(df['Timestamp'], df['DHI'], label='DHI')
@@ -49,7 +49,7 @@ def ploat_correlation_analysis(data_frame):
     plt.suptitle('Scatter Matrix: Wind Conditions and Solar Irradiance', y=1.02)
     plt.show()
 
-def wind_analysis(data, ws_col='WS', wd_col='WD', title='Wind Speed and Direction Analysis'):
+def ploat_wind_analysis(data, ws_col='WS', wd_col='WD', title='Wind Speed and Direction Analysis'):
     # Convert wind direction from degrees to radians
     data['Wind_Direction_Radians'] = np.deg2rad(data[wd_col])
 
