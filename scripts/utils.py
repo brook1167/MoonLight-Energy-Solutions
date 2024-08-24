@@ -87,6 +87,7 @@ def ploat_temperature_analysis(data_frame):
     plt.xlabel('Relative Humidity (%)')
     plt.ylabel('Temperature (TModA)')
 
+
     # RH vs TModB
     plt.subplot(2, 2, 2)
     sns.scatterplot(x=data_frame['RH'], y=data_frame['TModB'])
