@@ -75,3 +75,71 @@ def ploat_wind_analysis(data, ws_col='WS', wd_col='WD', title='Wind Speed and Di
     # Analysis of variability in wind direction
     wind_direction_variability = data[wd_col].std()
     print(f"Wind Direction Variability (Standard Deviation): {wind_direction_variability:.2f} degrees")
+
+def ploat_temperature_analysis(data_frame):
+    # Scatter plots: RH vs Temperature, RH vs Solar Radiation
+    plt.figure(figsize=(16, 10))
+
+    # RH vs TModA
+    plt.subplot(2, 2, 1)
+    sns.scatterplot(x=data_frame['RH'], y=data_frame['TModA'])
+    plt.title('Relative Humidity vs TModA')
+    plt.xlabel('Relative Humidity (%)')
+    plt.ylabel('Temperature (TModA)')
+
+    # RH vs TModB
+    plt.subplot(2, 2, 2)
+    sns.scatterplot(x=data_frame['RH'], y=data_frame['TModB'])
+    plt.title('Relative Humidity vs TModB')
+    plt.xlabel('Relative Humidity (%)')
+    plt.ylabel('Temperature (TModB)')
+
+    # RH vs GHI
+    plt.subplot(2, 2, 3)
+    sns.scatterplot(x=data_frame['RH'], y=data_frame['GHI'])
+    plt.title('Relative Humidity vs GHI')
+    plt.xlabel('Relative Humidity (%)')
+    plt.ylabel('Global Horizontal Irradiance (GHI)')
+
+    # RH vs DNI
+    plt.subplot(2, 2, 4)
+    sns.scatterplot(x=data_frame['RH'], y=data_frame['DNI'])
+    plt.title('Relative Humidity vs DNI')
+    plt.xlabel('Relative Humidity (%)')
+    plt.ylabel('Direct Normal Irradiance (DNI)')
+
+    plt.tight_layout()
+    plt.show()
+
+    # Correlation matrix for RH, Temperature, and Solar Radiation components
+    corr_matrix = data_frame[['RH', 'TModA', 'TModB', 'GHI', 'DNI', 'DHI']].corr()
+
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+    plt.title('Correlation Heatmap: RH, Temperature, and Solar Radiation Components')
+    plt.show()
+
+    # Trend Analysis with Line Plots
+    plt.figure(figsize=(16, 10))
+
+    # RH and TModA over time
+    plt.subplot(2, 1, 1)
+    plt.plot(data_frame['Timestamp'], data_frame['RH'], label='Relative Humidity (%)', color='blue', alpha=0.6)
+    plt.plot(data_frame['Timestamp'], data_frame['TModA'], label='Temperature (TModA)', color='red', alpha=0.6)
+    plt.legend(loc='upper right')
+    plt.title('Relative Humidity and TModA Over Time')
+    plt.xlabel('Time')
+    plt.ylabel('Values')
+
+    # RH and GHI over time
+    plt.subplot(2, 1, 2)
+    plt.plot(data_frame['Timestamp'], data_frame['RH'], label='Relative Humidity (%)', color='blue', alpha=0.6)
+    plt.plot(data_frame['Timestamp'], data_frame['GHI'], label='Global Horizontal Irradiance (GHI)', color='green', alpha=0.6)
+    plt.legend(loc='upper right')
+    plt.title('Relative Humidity and GHI Over Time')
+    plt.xlabel('Time')
+    plt.ylabel('Values')
+
+    plt.tight_layout()
+    plt.show()
+
