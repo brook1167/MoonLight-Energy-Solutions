@@ -37,3 +37,7 @@ To run the analysis on your local machine, please follow these steps:
    git clone https://github.com/brook1167/MoonLight-Energy-Solutions.git
    
    cd MoonLight-Energy-Solutions
+
+   Use the following command to install all python library the repository
+
+   pip install -r requirements.txt
