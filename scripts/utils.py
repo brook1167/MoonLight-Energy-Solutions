@@ -144,3 +144,22 @@ def ploat_temperature_analysis(data_frame):
     plt.tight_layout()
     plt.show()
 
+def plot_histograms(data):
+    # List of variables to plot
+    data = data.head(1000)
+    variables = ['GHI', 'DNI', 'DHI', 'WS', 'TModA', 'TModB']
+    
+    # Set the size of the overall figure
+    plt.figure(figsize=(15, 10))
+
+    # Loop through the variables and create a histogram for each
+    for i, var in enumerate(variables, start=1):
+        plt.subplot(2, 3, i)
+        sns.histplot(data[var], kde=True, bins=30, color='skyblue')
+        plt.title(f'Histogram of {var}')
+        plt.xlabel(var)
+        plt.ylabel('Frequency')
+
+    # Adjust the layout to avoid overlap
+    plt.tight_layout()
+    plt.show()
