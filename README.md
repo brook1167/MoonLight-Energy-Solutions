@@ -30,5 +30,10 @@ To run the analysis on your local machine, please follow these steps:
 
 1. **Clone the Repository**
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+   1. **Clone the Repository**
+
+   Use the following command to clone the repository:
+   ```bash
+   git clone https://github.com/brook1167/MoonLight-Energy-Solutions.git
+   
+   cd MoonLight-Energy-Solutions
